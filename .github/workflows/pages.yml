@@ -33,7 +33,7 @@ jobs:
               (output / target / 'index.html').write_text(html.replace('../공통/', '../assets/'), encoding='utf-8')
           assets = output / 'assets'
           assets.mkdir()
-          for name in ['lms.css', 'lms.js', 'mcp-korean.png', '회의전사_260922_1차.txt', '회의전사_261006_2차.txt', '261020_업무보고서_교육용템플릿_draft.html']:
+          for name in ['lms.css', 'lms.js', 'mcp-korean.webp', '회의전사_260922_1차.txt', '회의전사_261006_2차.txt', '261020_업무보고서_교육용템플릿_draft.html']:
               shutil.copyfile(Path('공통') / name, assets / name)
           script = assets / 'lms.js'
           text = script.read_text(encoding='utf-8').replace('../공통/', '../assets/').replace('../01_ChatGPT_Work/index.html', '../day1/').replace('../02_Antigravity/index.html', '../day2/')
