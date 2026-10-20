@@ -33,13 +33,13 @@ jobs:
               (output / target / 'index.html').write_text(html.replace('../공통/', '../assets/'), encoding='utf-8')
           assets = output / 'assets'
           assets.mkdir()
-          for name in ['lms.css', 'lms.js', 'mcp-korean.webp', '회의전사_260922_1차.txt', '회의전사_261006_2차.txt', '261020_업무보고서_교육용템플릿_draft.html']:
+          for name in ['lms.css', 'lms.js', 'mcp-korean.webp', 'prompt-context-harness-ko.png', 'harness-feedback-ko.png', '회의전사_260922_1차.txt', '회의전사_261006_2차.txt', '261020_업무보고서_교육용템플릿_draft.html']:
               shutil.copyfile(Path('공통') / name, assets / name)
           script = assets / 'lms.js'
           text = script.read_text(encoding='utf-8').replace('../공통/', '../assets/').replace('../01_ChatGPT_Work/index.html', '../day1/').replace('../02_Antigravity/index.html', '../day2/')
           script.write_text(text, encoding='utf-8')
           (output / 'index.html').write_text('<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>경기테크노파크 AI 실무교육</title><style>body{font-family:Arial,sans-serif;max-width:720px;margin:80px auto;padding:24px;line-height:1.8;color:#182b45}a{display:block;padding:24px;margin:20px 0;background:#edf3ff;border-radius:12px;color:#225ed9;text-decoration:none}</style><h1>경기테크노파크 AI 실무교육</h1><a href="day1/">1일차 · ChatGPT Work</a><a href="day2/">2일차 · Antigravity</a></html>', encoding='utf-8')
-          assert len(list(output.rglob('*.*'))) == 9
+          assert len(list(output.rglob('*.*'))) == 11
       - uses: actions/upload-pages-artifact@v4
         with:
           path: _site
